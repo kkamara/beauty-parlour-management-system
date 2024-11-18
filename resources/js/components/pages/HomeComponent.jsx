@@ -5,30 +5,18 @@ import ReactPaginate from 'react-paginate'
 import moment from 'moment'
 import { Helmet, } from "react-helmet"
 import { getUsers, } from '../../redux/actions/usersActions'
-import { authorize } from '../../redux/actions/authActions'
 
 import "./HomeComponent.scss"
 
 export default function HomeComponent() {
-  const navigate = useNavigate()
-
   const dispatch = useDispatch()
   const state = useSelector(state => ({
-    auth: state.auth,
     users: state.users,
   }))
 
   useEffect(() => {
-    dispatch(authorize())
     dispatch(getUsers())
   }, [])
-
-  useEffect(() => {
-    if (state.auth.error) {
-      localStorage.removeItem('user-token')
-      window.location.href = '/user/login'
-    }
-  }, [state.auth,])
 
   const handlePageChange = ({ selected, }) => {
     const newPage = selected + 1
@@ -99,20 +87,13 @@ export default function HomeComponent() {
   }
 
   if (
-    !state.auth.loading &&
-    typeof state.auth.data === 'object' &&
-    null !== state.auth.data
-  ) {
-    console.log('authenticated', state.auth.data)
-  }
-  if (
     !state.users.loading &&
     typeof state.users.data === 'object' &&
     null !== state.users.data
   ) {
     console.log('users', state.users.data)
   }
-  if (state.auth.loading || state.users.loading) {
+  if (state.users.loading) {
     return <div className="container home-container text-center">
       <Helmet>
         <title>Home - {import.meta.env.VITE_APP_NAME}</title>
