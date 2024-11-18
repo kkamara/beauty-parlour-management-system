@@ -27,7 +27,7 @@
 
 [Postman client](https://www.postman.com/).
 
-[Published Postman API Collection](https://documenter.getpostman.com/view/17125932/TzzAKvVe).
+[Published Postman API Collection](https://documenter.getpostman.com/view/17125932/2sAYBREt9n).
 
 ## Installation
 
