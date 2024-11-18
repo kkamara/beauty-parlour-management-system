@@ -4,7 +4,7 @@
 
 # Beauty Parlour Management System [![API](https://github.com/kkamara/beauty-parlour-management-system/actions/workflows/build.yml/badge.svg)](https://github.com/kkamara/beauty-parlour-management-system/actions/workflows/build.yml)
 
-(2021) A Laravel 11.x boilerplate with ReactJS 18 Redux SPA.
+(18-Nov-2024) www.1000projects.org challenge. Made with Laravel 11, ReactJS 18 and Filament. Made from www.github.com/kkamara/php-reactjs-boilerplate .
 
 * [Using Postman?](#postman)
 

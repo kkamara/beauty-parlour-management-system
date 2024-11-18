@@ -9,7 +9,7 @@
     ],
     "version": "1.0.0",
     "type": "project",
-    "description": "(2021) A Laravel 11.x boilerplate with ReactJS 18 Redux SPA.",
+    "description": "(18-Nov-2024) www.1000projects.org challenge. Made with Laravel 11, ReactJS 18 and Filament. Made from www.github.com/kkamara/php-reactjs-boilerplate .",
     "keywords": [
         "web",
         "web-app",
