@@ -46,7 +46,7 @@ export default function HomeComponent() {
 
             <div className="card col-md-3 home-card">
               <div className="card-header">
-                <h3>Hair Styling</h3>
+                <h4>Hair Styling</h4>
               </div>
               <div className="card-body">
                 Laborum incididunt culpa irure cupidatat Lorem pariatur aliquip sint id anim est aute aliqua.
@@ -63,7 +63,7 @@ export default function HomeComponent() {
             
             <div className="card col-md-3 home-card">
               <div className="card-header">
-                <h3>Hair Colouring</h3>
+                <h4>Hair Colouring</h4>
               </div>
               <div className="card-body">
                 Dolor aliquip enim Lorem ipsum id officia veniam.
@@ -80,7 +80,7 @@ export default function HomeComponent() {
 
             <div className="card col-md-3 home-card">
               <div className="card-header">
-                <h3>Hair Treatment</h3>
+                <h4>Hair Treatment</h4>
               </div>
               <div className="card-body">
                 Minim sunt minim officia dolore consectetur non deserunt minim id ex.
