@@ -63,7 +63,7 @@ export default function HomeComponent() {
             
             <div className="card col-md-3 home-card">
               <div className="card-header">
-                <h3>Hair Coloring</h3>
+                <h3>Hair Colouring</h3>
               </div>
               <div className="card-body">
                 Dolor aliquip enim Lorem ipsum id officia veniam.
