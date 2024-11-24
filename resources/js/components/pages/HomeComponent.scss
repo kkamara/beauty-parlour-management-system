@@ -10,3 +10,9 @@
 .home-card > .card-body {
     height: 150px;
 }
+
+.home-card .card-header h4 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
