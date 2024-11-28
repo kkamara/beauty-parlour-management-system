@@ -43,7 +43,7 @@ export default function HairStylingComponent() {
           <ServiceComponent
             title={"Hair Styling Service"}
             addToCart={addToCart}
-            getText={() => <>
+            Text={() => <>
                 Ad veniam nisi occaecat aute ad irure qui consectetur sunt non velit enim ullamco. Eiusmod nisi ex magna velit velit labore officia occaecat. Nostrud dolor consectetur consequat ex. Lorem reprehenderit est nisi ad quis. Proident laborum nulla commodo aute. Dolore ea laboris voluptate nostrud dolor sit anim nostrud ullamco veniam mollit.
                 <br/>
                 Fugiat Lorem do anim esse culpa ad incididunt non fugiat aute do enim. Ea occaecat nisi laboris culpa dolore eu tempor id voluptate. Aliqua duis officia non adipisicing do deserunt anim reprehenderit nisi. Lorem mollit aliqua id nisi ipsum quis deserunt exercitation labore. Aliquip amet qui esse pariatur et ipsum veniam est. Tempor pariatur in et nisi.

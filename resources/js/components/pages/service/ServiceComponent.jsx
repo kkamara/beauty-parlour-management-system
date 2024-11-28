@@ -3,7 +3,7 @@ import React from "react"
 export default function ServiceComponent({
   title,
   addToCart,
-  getText,
+  Text,
   operationBtnText,
   operationBtnClasses,
 }) {
@@ -12,7 +12,7 @@ export default function ServiceComponent({
       <h1>{title}</h1>
       <div className="row">
         <div className="col-md-6">
-          {getText()}
+          <Text />
         </div>
         <div className="col-md-6">
           <div className="text-end">
