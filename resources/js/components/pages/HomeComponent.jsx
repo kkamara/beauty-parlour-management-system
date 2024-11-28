@@ -53,7 +53,7 @@ export default function HomeComponent() {
               </div>
               <div className="card-footer">
                 <div className="text-end">
-                  <span className="home-card-cost">£50.00</span>
+                  <span className="home-card-cost me-2">£50.00</span>
                   <a className="btn btn-primary" href="/services/hair-styling">
                     Order Online
                   </a>
@@ -70,7 +70,7 @@ export default function HomeComponent() {
               </div>
               <div className="card-footer">
                 <div className="text-end">
-                  <span className="home-card-cost">£50.00</span>
+                  <span className="home-card-cost me-2">£50.00</span>
                   <a className="btn btn-primary" href="#">
                     Order Online
                   </a>
@@ -87,7 +87,7 @@ export default function HomeComponent() {
               </div>
               <div className="card-footer">
                 <div className="text-end">
-                  <span className="home-card-cost">£50.00</span>
+                  <span className="home-card-cost me-2">£50.00</span>
                   <a className="btn btn-primary" href="#">
                     Order Online
                   </a>
