@@ -1,0 +1,18 @@
+.home-card {
+    display: inline-block !important;
+    margin: 20px;
+}
+
+.home-card-cost {
+    margin-right: 10px;
+}
+
+.home-card > .card-body {
+    height: 150px;
+}
+
+.home-card .card-header h4 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
