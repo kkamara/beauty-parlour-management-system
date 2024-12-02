@@ -23,4 +23,11 @@ class Product extends Model
         'price',
         'description',
     ];
+
+    public function getFormattedPriceAttribute() {
+        return "£".number_format(
+            $this->price,
+            2
+        );
+    }
 }

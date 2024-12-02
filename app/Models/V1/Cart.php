@@ -36,4 +36,11 @@ class Cart extends Model
     public function getPriceAttribute() {
         return $this->quantity * $this->product->price;
     }
+
+    public function getFormattedPriceAttribute() {
+        return "£".number_format(
+            $this->quantity * $this->product->price,
+            2
+        );
+    }
 }
