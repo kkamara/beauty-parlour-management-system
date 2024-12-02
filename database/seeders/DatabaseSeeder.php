@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\V1\User;
+use App\Models\V1\Product;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -19,6 +20,15 @@ class DatabaseSeeder extends Seeder
         User::factory()->create([
             'name' => 'Jane Doe',
             'email' => 'jane@doe.com',
+        ]);
+        Product::factory()->create([
+            "name" => "Hair Styling",
+        ]);
+        Product::factory()->create([
+            "name" => "Hair Colouring",
+        ]);
+        Product::factory()->create([
+            "name" => "Hair Treatment",
         ]);
     }
 }
