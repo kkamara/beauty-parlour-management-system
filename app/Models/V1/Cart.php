@@ -32,4 +32,8 @@ class Cart extends Model
             Product::class,
         );
     }
+
+    public function getPriceAttribute() {
+        return $this->quantity * $this->product->price;
+    }
 }
