@@ -16,21 +16,32 @@ export default function Header(props) {
 
   const renderNavLinks = () => {
     if(authResponse.data) {
-      return <li className="nav-item dropdown">
-        <a className="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          User
-        </a>
-        <ul className="dropdown-menu">
-          <li>
-            <Link
-              className="dropdown-item" 
-              to="/user/logout"
-            >
-              Sign Out
-            </Link>
-          </li>
-        </ul>
-      </li>
+      return <>
+        <li className="nav-item dropdown">
+          <a className="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            User
+          </a>
+          <ul className="dropdown-menu">
+            <li>
+              <Link
+                className="dropdown-item" 
+                to="/user/logout"
+              >
+                Sign Out
+              </Link>
+            </li>
+          </ul>
+        </li>
+        <li className="nav-item">
+          <Link
+            className="nav-link active" 
+            aria-current="page" 
+            to="#"
+          >
+            Cart (0)
+          </Link>
+        </li>
+      </>
     } else {
       return <>
         <li className="nav-item">
