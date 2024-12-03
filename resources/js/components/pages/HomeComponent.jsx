@@ -1,39 +1,9 @@
-import React, { useEffect, } from 'react'
-import { useNavigate, } from 'react-router-dom'
-import { useDispatch, useSelector, } from 'react-redux'
-import ReactPaginate from 'react-paginate'
-import moment from 'moment'
+import React from 'react'
 import { Helmet, } from "react-helmet"
-import { getUsers, } from '../../redux/actions/usersActions'
 
 import "./HomeComponent.scss"
 
 export default function HomeComponent() {
-  const dispatch = useDispatch()
-  const state = useSelector(state => ({
-    users: state.users,
-  }))
-
-  useEffect(() => {
-    dispatch(getUsers())
-  }, [])
-
-  if (
-    !state.users.loading &&
-    typeof state.users.data === 'object' &&
-    null !== state.users.data
-  ) {
-    console.log('users', state.users.data)
-  }
-  if (state.users.loading) {
-    return <div className="container home-container text-center">
-      <Helmet>
-        <title>Services - {import.meta.env.VITE_APP_NAME}</title>
-      </Helmet>
-      <p>Loading...</p>
-    </div>
-  }
-
   return (
     <>
       <div className='container home-container'>
