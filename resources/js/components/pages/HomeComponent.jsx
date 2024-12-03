@@ -71,7 +71,7 @@ export default function HomeComponent() {
               <div className="card-footer">
                 <div className="text-end">
                   <span className="home-card-cost me-2">£50.00</span>
-                  <a className="btn btn-primary" href="#">
+                  <a className="btn btn-primary" href="/services/hair-colouring">
                     Order Online
                   </a>
                 </div>
@@ -88,7 +88,7 @@ export default function HomeComponent() {
               <div className="card-footer">
                 <div className="text-end">
                   <span className="home-card-cost me-2">£50.00</span>
-                  <a className="btn btn-primary" href="#">
+                  <a className="btn btn-primary" href="/services/hair-treatment">
                     Order Online
                   </a>
                 </div>

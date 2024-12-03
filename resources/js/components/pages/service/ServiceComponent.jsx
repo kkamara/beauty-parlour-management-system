@@ -6,6 +6,7 @@ export default function ServiceComponent({
   Text,
   operationBtnText,
   operationBtnClasses,
+  price,
 }) {
   return (
     <div className="col-md-10 offset-md-1">
@@ -16,7 +17,7 @@ export default function ServiceComponent({
         </div>
         <div className="col-md-6">
           <div className="text-end">
-            <span className="service-cost me-4">£50.00</span>
+            <span className="service-cost me-4">{price}</span>
             <button
               className={`btn service-operation-btn ${operationBtnClasses || null}`}
               onClick={addToCart}

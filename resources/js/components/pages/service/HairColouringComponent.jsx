@@ -4,7 +4,7 @@ import { Helmet, } from "react-helmet"
 
 import ServiceComponent from "./ServiceComponent"
 
-export default function HairStylingComponent() {
+export default function HairColouringComponent() {
   const dispatch = useDispatch()
   const state = useSelector(state => ({
     auth: state.auth,
@@ -34,18 +34,18 @@ export default function HairStylingComponent() {
     <>
       <div className='container hair-styling-container'>
         <Helmet>
-          <title>Hair Styling - Services - {import.meta.env.VITE_APP_NAME}</title>
+          <title>Hair Colouring - Services - {import.meta.env.VITE_APP_NAME}</title>
         </Helmet>
         <div className="row">
           <ServiceComponent
-            title={"Hair Styling Service"}
+            title={"Hair Colouring Service"}
             addToCart={addToCart}
             Text={() => <>
-              Ad veniam nisi occaecat aute ad irure qui consectetur sunt non velit enim ullamco. Eiusmod nisi ex magna velit velit labore officia occaecat. Nostrud dolor consectetur consequat ex. Lorem reprehenderit est nisi ad quis. Proident laborum nulla commodo aute. Dolore ea laboris voluptate nostrud dolor sit anim nostrud ullamco veniam mollit.
+              Veniam mollit nostrud non nulla irure nisi consectetur sunt officia cupidatat pariatur id aliqua. Ullamco aute sint labore qui veniam. Culpa fugiat ut consequat quis ad minim minim est velit. Ipsum officia ipsum Lorem ullamco consectetur esse dolore elit qui est minim non. Tempor ea dolore id dolore.
               <br/>
-              Fugiat Lorem do anim esse culpa ad incididunt non fugiat aute do enim. Ea occaecat nisi laboris culpa dolore eu tempor id voluptate. Aliqua duis officia non adipisicing do deserunt anim reprehenderit nisi. Lorem mollit aliqua id nisi ipsum quis deserunt exercitation labore. Aliquip amet qui esse pariatur et ipsum veniam est. Tempor pariatur in et nisi.
+              Laboris do laborum sit laborum mollit non. In enim ex do esse reprehenderit. Eiusmod reprehenderit aliqua consequat ipsum.
               <br/>
-              Do non eu pariatur dolore magna. Ullamco anim reprehenderit anim veniam non esse anim labore. Magna est elit do quis aute et amet ad elit in sint ut. Do est laboris deserunt elit enim id deserunt.
+              In magna eu anim mollit qui sunt consequat fugiat voluptate laborum adipisicing. Culpa enim excepteur id ullamco occaecat eiusmod deserunt. Non occaecat dolore reprehenderit ad est ad ut exercitation dolore esse ut. Tempor proident veniam laboris veniam enim tempor reprehenderit in velit fugiat. Sunt dolor aliquip laboris esse laboris nostrud incididunt eu veniam et dolore.
             </>}
             operationBtnText={"Add To Cart"}
             operationBtnClasses={"btn-success"}
