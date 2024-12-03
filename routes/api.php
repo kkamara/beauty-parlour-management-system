@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\V1\Web\UserController as WebUserController;
 use App\Http\Controllers\V1\API\UserController;
+use App\Http\Controllers\V1\Web\CartController;
 
 Route::prefix('web')
     ->group(function () {
@@ -18,6 +19,11 @@ Route::prefix('web')
                 '/authorize',
                 [WebUserController::class, 'authorizeUser'],
             )->middleware("auth:sanctum");
+        });
+        Route::prefix('/cart')->group(function () {
+            Route::get("/", [CartController::class, "index"])
+                ->middleware("auth:sanctum")
+                ->name("cart.get");
         });
         Route::get(
             '/users',

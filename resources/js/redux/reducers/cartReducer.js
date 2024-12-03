@@ -1,4 +1,4 @@
-import { users, } from '../types'
+import { cart, } from '../types'
 
 const initState = {
   data: null,
@@ -6,23 +6,23 @@ const initState = {
   loading: true,
 }
 
-export default function usersReducer (state = initState, action) {
+export default function cartReducer (state = initState, action) {
   switch (action.type) {
     
-    case users.GET_USERS_ERROR:
+    case cart.GET_CART_ERROR:
       return {
         ...state,
         error: action.payload,
         loading: false,
       }
     
-    case users.GET_USERS_PENDING:
+    case cart.GET_CART_PENDING:
       return {
         ...state,
         loading: true,
       }
     
-    case users.GET_USERS_SUCCESS:
+    case cart.GET_CART_SUCCESS:
       return {
         ...state,
         data: action.payload,
