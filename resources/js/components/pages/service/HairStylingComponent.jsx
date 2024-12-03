@@ -16,16 +16,17 @@ export default function HairStylingComponent() {
     if (
       !state.auth.loading &&
       typeof state.auth.data === 'object' &&
+      null === state.auth.data
+    ) {
+      return alert("You must sign in or register to complete this action.")
+    }
+    if (
+      !state.auth.loading &&
+      typeof state.auth.data === 'object' &&
       null !== state.auth.data
     ) {
       // TODO: Add To Cart
-      alert("Adding to cart...")
-    } else if (
-      !state.auth.loading &&
-      typeof state.auth.data === 'object' &&
-      null === state.auth.data
-    ) {
-      alert("You must sign in or register to complete this action.")
+      return alert("Adding to cart...")
     }
   }
 
