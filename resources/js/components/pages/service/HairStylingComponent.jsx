@@ -1,10 +1,6 @@
 import React, { useEffect, } from 'react'
-import { useNavigate, } from 'react-router-dom'
 import { useDispatch, useSelector, } from 'react-redux'
-import ReactPaginate from 'react-paginate'
-import moment from 'moment'
 import { Helmet, } from "react-helmet"
-import { getUsers, } from '../../../redux/actions/usersActions'
 
 import ServiceComponent from "./ServiceComponent"
 
