@@ -1,21 +1,53 @@
-import React, { useEffect, } from 'react'
+import React, { useEffect, useState, } from 'react'
 import { useDispatch, } from "react-redux"
 import { useSelector, } from 'react-redux'
 import { Link, } from 'react-router-dom'
 import { authorize, } from "../../redux/actions/authActions"
+import { getCart, } from "../../redux/actions/cartActions"
 
 import "./Header.scss"
 
 export default function Header(props) {
   const dispatch = useDispatch()
-  const authResponse = useSelector(state=>state.auth)
+  const state = useSelector(state => ({
+    auth: state.auth,
+    cart: state.cart,
+  }))
+  const [quantity, setQuantity] = useState(0)
 
   useEffect(() => {
     dispatch(authorize())
   }, [])
 
+  useEffect(() => {
+    if (
+      false === state.auth.loading &&
+      typeof state.auth.data === "object" &&
+      null !== state.auth.data
+    ) {
+      dispatch(getCart())
+    }
+  }, [state.auth])
+
+  useEffect(() => {
+    if (
+      false === state.cart.loading &&
+      typeof state.cart.data === "object" &&
+      null !== state.cart.data
+    ) {
+      createCartQuantity()
+    }
+  }, [state.cart])
+
+  const createCartQuantity = () => {
+    const quantity = state.cart.data.data.reduce((acc, curr) => {
+      return acc + curr.quantity
+    }, 0)
+    setQuantity(quantity)
+  }
+  
   const renderNavLinks = () => {
-    if(authResponse.data) {
+    if(state.auth.data) {
       return <>
         <li className="nav-item dropdown">
           <a className="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -38,7 +70,7 @@ export default function Header(props) {
             aria-current="page" 
             to="#"
           >
-            Cart (0)
+            Cart ({quantity})
           </Link>
         </li>
       </>
