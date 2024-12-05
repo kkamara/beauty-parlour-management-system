@@ -112,54 +112,52 @@ export default function CartComponent() {
   }
 
   return (
-    <>
-      <div className='container cart-container'>
-        <Helmet>
-          <title>Cart - {import.meta.env.VITE_APP_NAME}</title>
-        </Helmet>
-        <div className="row">
-          <div className="col-md-10 offset-md-1">
-            <h1>Cart</h1>
+    <div className='container cart-container'>
+      <Helmet>
+        <title>Cart - {import.meta.env.VITE_APP_NAME}</title>
+      </Helmet>
+      <div className="row">
+        <div className="col-md-10 offset-md-1">
+          <h1>Cart</h1>
 
-            <form className="row" onSubmit={handleSubmit}>
-              <div className="col-md-8">
-                {state.cart.data.data.map((cartItem, key) => (
-                  <div className="card" key={key}>
-                    <div className="card-body">
-                      <div className="float-start cart-area-1">
-                        <h3>{cartItem.product.name}</h3>
-                        <p>{cartItem.product.description}</p>
-                        {renderPreferredDateTime()}
-                        <div className="text-end">
-                          {countPreferredDateTime < 3 && <button
-                            className="btn btn-info"
-                            onClick={addPreferredDateTime}
-                          >
-                            Add Preferred Date & Time
-                          </button>}
-                        </div>
-                      </div>
-                      <div className="float-end cart-area-2">
-                        <p className="cart-cost">
-                          {cartItem.formattedPrice}
-                        </p>
+          <form className="row" onSubmit={handleSubmit}>
+            <div className="col-md-8">
+              {state.cart.data.data.map((cartItem, key) => (
+                <div className="card" key={key}>
+                  <div className="card-body">
+                    <div className="float-start cart-area-1">
+                      <h3>{cartItem.product.name}</h3>
+                      <p>{cartItem.product.description}</p>
+                      {renderPreferredDateTime()}
+                      <div className="text-end">
+                        {countPreferredDateTime < 3 && <button
+                          className="btn btn-info"
+                          onClick={addPreferredDateTime}
+                        >
+                          Add Preferred Date & Time
+                        </button>}
                       </div>
                     </div>
+                    <div className="float-end cart-area-2">
+                      <p className="cart-cost">
+                        {cartItem.formattedPrice}
+                      </p>
+                    </div>
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
+            </div>
 
-              <div className="col-md-4 text-end">
-                <input
-                  className="btn btn-success"
-                  type="submit"
-                  value="Checkout"
-                />
-              </div>
-            </form>
-          </div>
+            <div className="col-md-4 text-end">
+              <input
+                className="btn btn-success"
+                type="submit"
+                value="Checkout"
+              />
+            </div>
+          </form>
         </div>
       </div>
-    </>
+    </div>
   )
 }
