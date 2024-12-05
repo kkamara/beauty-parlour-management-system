@@ -8,6 +8,8 @@ import Home from "./components/pages/HomeComponent"
 import HairStyling from "./components/pages/service/HairStylingComponent"
 import HairColouring from "./components/pages/service/HairColouringComponent"
 import HairTreatment from "./components/pages/service/HairTreatmentComponent"
+import Cart from "./components/pages/cart/CartComponent"
+
 import Login from "./components/pages/auth/LoginComponent"
 import Logout from "./components/pages/auth/LogoutComponent"
 import Register from "./components/pages/auth/RegisterComponent"
@@ -21,6 +23,7 @@ export default () => {
       <Header/>
       <Routes>
         <Route path={url("/")} element={<Home />}/>
+        <Route path={url("/cart")} element={<Cart />}/>
         <Route path={url("/services/hair-styling")} element={<HairStyling />}/>
         <Route path={url("/services/hair-colouring")} element={<HairColouring />}/>
         <Route path={url("/services/hair-treatment")} element={<HairTreatment />}/>
