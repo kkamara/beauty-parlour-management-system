@@ -10,6 +10,8 @@ export default function CartComponent() {
     cart: state.cart,
   }))
   const [countPreferredDateTime, setCountPreferredDateTime] = useState(0)
+
+  // TODO: Authorized users only can access the page.
   
   const renderPreferredDateTime = () => {
     let result
