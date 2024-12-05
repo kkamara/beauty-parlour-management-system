@@ -8,6 +8,7 @@ export default function HairStylingComponent() {
   const dispatch = useDispatch()
   const state = useSelector(state => ({
     auth: state.auth,
+    cart: state.cart,
   }))
 
   useEffect(() => {}, [])
@@ -25,6 +26,15 @@ export default function HairStylingComponent() {
       typeof state.auth.data === 'object' &&
       null !== state.auth.data
     ) {
+      if (
+        !state.cart.loading &&
+        typeof state.cart.data === 'object' &&
+        null !== state.cart.data
+      ) {
+        if (state.cart.data.data.length) {
+          return alert("The cart already has an item.")
+        }
+      }
       // TODO: Add To Cart
       return alert("Adding to cart...")
     }
