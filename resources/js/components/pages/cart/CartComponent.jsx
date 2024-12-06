@@ -2,6 +2,7 @@ import React, { useEffect, useState, } from 'react'
 import { useNavigate, } from "react-router"
 import { Helmet, } from "react-helmet"
 import { useSelector, useDispatch, } from 'react-redux'
+import RemoveFromCartModal from "./RemoveFromCartModal"
 import { removeServiceFromCart, } from "../../../redux/actions/removeCartActions"
 import { getCart, } from "../../../redux/actions/cartActions"
 
@@ -160,12 +161,11 @@ export default function CartComponent() {
               >
                 Add Preferred Date & Time
               </button>}
-              <button
-                className="btn btn-danger ms-4"
-                onClick={removeFromCart}
-              >
-                Remove From Cart
-              </button>
+              <RemoveFromCartModal
+                removeFromCart={removeFromCart}
+                name={cartItem.product.name}
+                price={cartItem.formattedPrice}
+              />
             </div>
           </div>
           <div className="float-end cart-area-2">
