@@ -64,6 +64,13 @@ class CartController extends Controller
      */
     public function destroy(Cart $cart)
     {
-        //
+        if ($cart->quantity > 1) {
+            $cart->quantity -= 1;
+            $cart->save();
+        } else if ($cart->quantity === 1) {
+            $cart->delete();
+        }
+
+        return ["message" => "Success"];
     }
 }

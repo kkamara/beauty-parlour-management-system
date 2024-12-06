@@ -24,6 +24,9 @@ Route::prefix('web')
             Route::get("/", [CartController::class, "index"])
                 ->middleware("auth:sanctum")
                 ->name("cart.get");
+            Route::delete("/{cart}", [CartController::class, "destroy"])
+                ->middleware("auth:sanctum")
+                ->name("cart.delete");
         });
         Route::get(
             '/users',
