@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\V1\Web\CheckoutController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\V1\Web\UserController as WebUserController;
 use App\Http\Controllers\V1\API\UserController;
@@ -30,6 +31,9 @@ Route::prefix('web')
             Route::patch("/product/{product}", [CartController::class, "update"])
                 ->middleware("auth:sanctum")
                 ->name("cart.update");
+            Route::get("/checkout", [CheckoutController::class, "checkout"])
+                ->middleware("auth:sanctum")
+                ->name("checkout");
         });
         Route::get(
             '/users',
