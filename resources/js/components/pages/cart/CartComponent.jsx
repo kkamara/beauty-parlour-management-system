@@ -122,8 +122,7 @@ export default function CartComponent() {
     setCountPreferredDateTime(state => state + 1)
   }
   
-  const removeFromCart = (e) => {
-    e.preventDefault()
+  const removeFromCart = () => {
     // dispatch(removeServiceFromCart(state.cart.data.data[0].id))
   }
 
