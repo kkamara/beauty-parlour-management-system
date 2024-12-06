@@ -1,17 +1,27 @@
 import React, { useEffect, useState, } from 'react'
+import { useNavigate, } from "react-router"
 import { Helmet, } from "react-helmet"
 import { useSelector, } from 'react-redux'
 
 import "./CartComponent.scss"
 
 export default function CartComponent() {
+  const navigate = useNavigate()
   const state = useSelector(state => ({
     auth: state.auth,
     cart: state.cart,
   }))
   const [countPreferredDateTime, setCountPreferredDateTime] = useState(0)
 
-  // TODO: Authorized users only can access the page.
+  useEffect(() => {
+    if (
+      false === state.auth.loading &&
+      typeof state.auth.data === "object" &&
+      null === state.auth.data
+    ) {
+      navigate("/user/login")
+    }
+  }, [state.auth])
   
   const renderPreferredDateTime = () => {
     let result
