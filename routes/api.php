@@ -27,6 +27,9 @@ Route::prefix('web')
             Route::delete("/{cart}", [CartController::class, "destroy"])
                 ->middleware("auth:sanctum")
                 ->name("cart.delete");
+            Route::patch("/product/{product}", [CartController::class, "update"])
+                ->middleware("auth:sanctum")
+                ->name("cart.update");
         });
         Route::get(
             '/users',
