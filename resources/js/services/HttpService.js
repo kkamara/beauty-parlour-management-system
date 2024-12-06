@@ -85,7 +85,7 @@ export default class HttpService
     return requestOptions
   }
 
-  deleteRequestOptions = ({ token, }) => {
+  deleteRequestOptions = (token) => {
     const requestOptions = {
       method: 'DELETE',
       headers: { 'Content-type' : 'application/json', },

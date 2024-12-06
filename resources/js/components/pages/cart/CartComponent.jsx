@@ -30,9 +30,9 @@ export default function CartComponent() {
 
   useEffect(() => {
     if (
-      false === state.auth.loading &&
-      typeof state.auth.data === "object" &&
-      null !== state.auth.data
+      false === state.removeFromCart.loading &&
+      typeof state.removeFromCart.data === "object" &&
+      null !== state.removeFromCart.data
     ) {
       dispatch(getCart())
     }
@@ -123,7 +123,7 @@ export default function CartComponent() {
   }
   
   const removeFromCart = () => {
-    // dispatch(removeServiceFromCart(state.cart.data.data[0].id))
+    dispatch(removeServiceFromCart(state.cart.data.data[0].id))
   }
 
   const handleSubmit = e => {
