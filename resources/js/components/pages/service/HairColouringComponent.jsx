@@ -3,15 +3,27 @@ import { useDispatch, useSelector, } from 'react-redux'
 import { Helmet, } from "react-helmet"
 
 import ServiceComponent from "./ServiceComponent"
+import { HAIR_COLOURING_PRODUCT_ID, } from "../../../constants"
+import { addItemToCart, } from "../../../redux/actions/addToCartActions"
+import { getCart, } from "../../../redux/actions/cartActions"
 
 export default function HairColouringComponent() {
   const dispatch = useDispatch()
   const state = useSelector(state => ({
     auth: state.auth,
     cart: state.cart,
+    addToCart: state.addToCart,
   }))
 
-  useEffect(() => {}, [])
+  useEffect(() => {
+    if (
+      false === state.addToCart.loading &&
+      typeof state.addToCart.data === "object" &&
+      null !== state.addToCart.data
+    ) {
+      dispatch(getCart())
+    }
+  }, [state.addToCart])
 
   const addToCart = () => {
     if (
@@ -35,8 +47,7 @@ export default function HairColouringComponent() {
           return alert("The cart already has an item.")
         }
       }
-      // TODO: Add To Cart
-      return alert("Adding to cart...")
+      dispatch(addItemToCart(HAIR_COLOURING_PRODUCT_ID))
     }
   }
 

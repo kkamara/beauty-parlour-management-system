@@ -45,6 +45,21 @@ export default class HttpService
     ).then(res => res)
   }
 
+  patchData = (path, item, tokenId="") => {
+    let requestOptions = this.patchRequestOptions({ item, })
+    let token
+    if (tokenId.length) {
+      token = localStorage.getItem(tokenId)
+      requestOptions = this.patchRequestOptions({ token, item, })
+    }
+
+    return axios.patch(
+      this.url+path, 
+      requestOptions.data, 
+      { headers: requestOptions.headers}
+    ).then(res => res)
+  }
+
   getData = (path, tokenId="") => {
     let requestOptions = this.getRequestOptions()
     let token
@@ -89,6 +104,18 @@ export default class HttpService
     const requestOptions = {
       method: 'DELETE',
       headers: { 'Content-type' : 'application/json', },
+    }
+    if (token) {
+      requestOptions.headers.Authorization = 'Bearer ' +token
+    }
+    return requestOptions
+  }
+
+  patchRequestOptions = ({ token, item, }) => {
+    const requestOptions = {
+      method: 'PATCH',
+      headers: { 'Content-type' : 'application/json', },
+      data : item,
     }
     if (token) {
       requestOptions.headers.Authorization = 'Bearer ' +token

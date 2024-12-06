@@ -1,0 +1,3 @@
+export const HAIR_STYLING_PRODUCT_ID = 1;
+export const HAIR_COLOURING_PRODUCT_ID = 2;
+export const HAIR_TREATMENT_PRODUCT_ID = 3;
