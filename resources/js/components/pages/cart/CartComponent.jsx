@@ -191,6 +191,8 @@ export default function CartComponent() {
         value="Checkout"
       />
     }
+
+    return null
   }
 
   if (state.auth.loading || state.cart.loading) {
