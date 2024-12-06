@@ -1,15 +1,19 @@
 import React, { useEffect, useState, } from 'react'
 import { useNavigate, } from "react-router"
 import { Helmet, } from "react-helmet"
-import { useSelector, } from 'react-redux'
+import { useSelector, useDispatch, } from 'react-redux'
+import { removeServiceFromCart, } from "../../../redux/actions/removeCartActions"
+import { getCart, } from "../../../redux/actions/cartActions"
 
 import "./CartComponent.scss"
 
 export default function CartComponent() {
   const navigate = useNavigate()
+  const dispatch = useDispatch()
   const state = useSelector(state => ({
     auth: state.auth,
     cart: state.cart,
+    removeFromCart: state.removeFromCart,
   }))
   const [countPreferredDateTime, setCountPreferredDateTime] = useState(0)
 
@@ -22,6 +26,16 @@ export default function CartComponent() {
       navigate("/user/login")
     }
   }, [state.auth])
+
+  useEffect(() => {
+    if (
+      false === state.auth.loading &&
+      typeof state.auth.data === "object" &&
+      null !== state.auth.data
+    ) {
+      dispatch(getCart())
+    }
+  }, [state.removeFromCart])
   
   const renderPreferredDateTime = () => {
     let result
@@ -106,6 +120,11 @@ export default function CartComponent() {
   const addPreferredDateTime = () => {
     setCountPreferredDateTime(state => state + 1)
   }
+  
+  const removeFromCart = (e) => {
+    e.preventDefault()
+    // dispatch(removeServiceFromCart(state.cart.data.data[0].id))
+  }
 
   const handleSubmit = e => {
     e.preventDefault()
@@ -113,6 +132,65 @@ export default function CartComponent() {
     const preferredTime1 = document.getElementById("preferredTime[0]")
     console.log(preferredDate1, preferredDate1.value)
     console.log(preferredTime1, preferredTime1.value)
+  }
+
+  const renderCartItems = () => {
+    if (
+      false === state.cart.loading &&
+      typeof state.cart.data === "object" &&
+      null !== state.cart.data &&
+      0 === state.cart.data.data.length
+    ) {
+      return <div className="text-center">
+        Your cart is empty.
+      </div>
+    }
+
+    return state.cart.data.data.map((cartItem, key) => (
+      <div className="card" key={key}>
+        <div className="card-body">
+          <div className="float-start cart-area-1">
+            <h3>{cartItem.product.name}</h3>
+            <p>{cartItem.product.description}</p>
+            {renderPreferredDateTime()}
+            <div className="text-end">
+              {countPreferredDateTime < 3 && <button
+                className="btn btn-info"
+                onClick={addPreferredDateTime}
+              >
+                Add Preferred Date & Time
+              </button>}
+              <button
+                className="btn btn-danger ms-4"
+                onClick={removeFromCart}
+              >
+                Remove From Cart
+              </button>
+            </div>
+          </div>
+          <div className="float-end cart-area-2">
+            <p className="cart-cost">
+              {cartItem.formattedPrice}
+            </p>
+          </div>
+        </div>
+      </div>
+    ))
+  }
+
+  const renderCheckoutBtn = () => {
+    if (
+      false === state.cart.loading &&
+      typeof state.cart.data === "object" &&
+      null !== state.cart.data &&
+      0 < state.cart.data.data.length
+    ) {
+      return <input
+        className="btn btn-success"
+        type="submit"
+        value="Checkout"
+      />
+    }
   }
 
   if (state.auth.loading || state.cart.loading) {
@@ -132,38 +210,11 @@ export default function CartComponent() {
 
           <form className="row" onSubmit={handleSubmit}>
             <div className="col-md-8">
-              {state.cart.data.data.map((cartItem, key) => (
-                <div className="card" key={key}>
-                  <div className="card-body">
-                    <div className="float-start cart-area-1">
-                      <h3>{cartItem.product.name}</h3>
-                      <p>{cartItem.product.description}</p>
-                      {renderPreferredDateTime()}
-                      <div className="text-end">
-                        {countPreferredDateTime < 3 && <button
-                          className="btn btn-info"
-                          onClick={addPreferredDateTime}
-                        >
-                          Add Preferred Date & Time
-                        </button>}
-                      </div>
-                    </div>
-                    <div className="float-end cart-area-2">
-                      <p className="cart-cost">
-                        {cartItem.formattedPrice}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              ))}
+              {renderCartItems()}
             </div>
 
             <div className="col-md-4 text-end">
-              <input
-                className="btn btn-success"
-                type="submit"
-                value="Checkout"
-              />
+              {renderCheckoutBtn()}
             </div>
           </form>
         </div>
