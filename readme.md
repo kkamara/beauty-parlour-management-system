@@ -61,6 +61,12 @@ herd link parlour
 # Website accessible at http://parlour.test
 ```
 
+### Stripe Webhook
+
+```bash
+stripe listen --forward-to parlour.test/api/web/cart/webhook
+```
+
 ## API Documentation
 
 ```bash

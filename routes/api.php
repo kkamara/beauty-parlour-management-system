@@ -33,6 +33,8 @@ Route::prefix('web')
                 ->name("cart.update");
             Route::post("/checkout", [CheckoutController::class, "checkout"])
                 ->name("checkout");
+            Route::post("/webhook", [CheckoutController::class, "webhook"])
+                ->name("webhook");
         });
         Route::get(
             '/users',

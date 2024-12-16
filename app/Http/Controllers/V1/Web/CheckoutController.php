@@ -108,4 +108,11 @@ class CheckoutController extends Controller
             );
         }
     }
+
+    public function webhook(Request $request) {
+        if (config("app.env") !== "production") {
+            Log::debug("Stripe webhook API route hit.");
+        }
+        return ["message" => "Success"];
+    }
 }
