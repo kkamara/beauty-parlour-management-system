@@ -31,8 +31,8 @@ Route::prefix('web')
             Route::patch("/product/{product}", [CartController::class, "update"])
                 ->middleware("auth:sanctum")
                 ->name("cart.update");
-            Route::get("/checkout", [CheckoutController::class, "checkout"])
-                ->middleware("auth:sanctum")
+            Route::post("/checkout", [CheckoutController::class, "checkout"])
+                // ->middleware("auth:sanctum")
                 ->name("checkout");
         });
         Route::get(

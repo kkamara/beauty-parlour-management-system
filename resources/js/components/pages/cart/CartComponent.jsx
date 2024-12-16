@@ -45,6 +45,7 @@ export default function CartComponent() {
       break;
       case 1:
         result = <div className="preferred-form">
+          <span className="fw-bolder">Both date and time need to be set.</span>
           <div className="form-group">
             <label htmlFor="preferredDate[0]">Preferred date:</label>
             <input type="date" name="preferredDate[0]" className="form-control" id="preferredDate[0]" />
@@ -58,6 +59,7 @@ export default function CartComponent() {
       case 2:
         result = <>
           <div className="preferred-form">
+            <span className="fw-bolder">Both date and time need to be set.</span>
             <div className="form-group">
               <label htmlFor="preferredDate[0]">Preferred date:</label>
               <input type="date" name="preferredDate[0]" className="form-control" id="preferredDate[0]" />
@@ -83,6 +85,7 @@ export default function CartComponent() {
       default:
         result = <>
           <div className="preferred-form">
+            <span className="fw-bolder">Both date and time need to be set.</span>
             <div className="form-group">
               <label htmlFor="preferredDate[0]">Preferred date:</label>
               <input type="date" name="preferredDate[0]" className="form-control" id="preferredDate[0]" />
@@ -126,14 +129,6 @@ export default function CartComponent() {
     dispatch(removeServiceFromCart(state.cart.data.data[0].id))
   }
 
-  const handleSubmit = e => {
-    e.preventDefault()
-    const preferredDate1 = document.getElementById("preferredDate[0]")
-    const preferredTime1 = document.getElementById("preferredTime[0]")
-    console.log(preferredDate1, preferredDate1.value)
-    console.log(preferredTime1, preferredTime1.value)
-  }
-
   const renderCartItems = () => {
     if (
       false === state.cart.loading &&
@@ -155,6 +150,7 @@ export default function CartComponent() {
             {renderPreferredDateTime()}
             <div className="text-end">
               {countPreferredDateTime < 3 && <button
+                type="button"
                 className="btn btn-info"
                 onClick={addPreferredDateTime}
               >
@@ -209,7 +205,13 @@ export default function CartComponent() {
         <div className="col-md-10 offset-md-1">
           <h1>Cart</h1>
 
-          <form className="row" onSubmit={handleSubmit}>
+          <form
+            className="row"
+            action="/api/web/cart/checkout"
+            method="POST"
+          >
+            <input type="hidden" name="productId" value={state.cart.data.data[0].product.id} />
+            <input type="hidden" name="userId" value={state.auth.data.id} />
             <div className="col-md-8">
               {renderCartItems()}
             </div>

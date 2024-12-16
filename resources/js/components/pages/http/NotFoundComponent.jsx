@@ -4,7 +4,7 @@ import "./NotFoundComponent.scss"
 
 export default function NotFoundComponent() {
   return (
-    <div>
+    <div className="text-center">
       <h1 className="not-found-lead fw-bold">
         Oops, the page you have requested has not been found.
       </h1>

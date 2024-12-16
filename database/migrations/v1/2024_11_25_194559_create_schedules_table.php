@@ -14,8 +14,12 @@ return new class extends Migration
         Schema::create('schedules', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger("order_product_id");
-            $table->unsignedBigInteger("worker_assigned_to")->default(null);
-            $table->dateTime("booked_for")->default(null);
+            $table->unsignedBigInteger("worker_assigned_to")
+                ->nullable()
+                ->default(null);
+            $table->dateTime("booked_for")
+                ->nullable()
+                ->default(null);
             $table->timestamps();
 
             $table->foreign("order_product_id")

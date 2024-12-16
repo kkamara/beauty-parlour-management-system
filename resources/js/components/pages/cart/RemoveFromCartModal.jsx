@@ -12,6 +12,7 @@ export default function RemoveFromCartModal({
   return (
     <>
       <button
+        type="button"
         className="btn btn-danger ms-4"
         data-bs-toggle="modal"
         data-bs-target="#removeFromCartModal"
