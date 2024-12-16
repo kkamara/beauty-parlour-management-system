@@ -32,7 +32,6 @@ Route::prefix('web')
                 ->middleware("auth:sanctum")
                 ->name("cart.update");
             Route::post("/checkout", [CheckoutController::class, "checkout"])
-                // ->middleware("auth:sanctum")
                 ->name("checkout");
         });
         Route::get(
