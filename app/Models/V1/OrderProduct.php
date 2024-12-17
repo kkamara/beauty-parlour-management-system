@@ -22,4 +22,8 @@ class OrderProduct extends Model
         "price",
         "description",
     ];
+
+    public function order() {
+        return $this->belongsTo(Order::class);
+    }
 }

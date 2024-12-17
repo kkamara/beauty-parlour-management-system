@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\V1\Web\CheckoutController;
+use App\Http\Controllers\V1\Web\OrderController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\V1\Web\UserController as WebUserController;
 use App\Http\Controllers\V1\API\UserController;
@@ -35,6 +36,11 @@ Route::prefix('web')
                 ->name("checkout");
             Route::post("/webhook", [CheckoutController::class, "webhook"])
                 ->name("webhook");
+        });
+        Route::prefix('/orders')->group(function () {
+            Route::get("/{order}", [OrderController::class, "getOrder"])
+                ->middleware("auth:sanctum")
+                ->name("getOrder");
         });
         Route::get(
             '/users',

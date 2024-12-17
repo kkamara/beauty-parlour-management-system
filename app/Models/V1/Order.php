@@ -16,11 +16,19 @@ class Order extends Model
      */
     protected $fillable = [
         "user_ordered",
+        "status",
         "price",
         "worker_assigned",
         "date_time",
         "queried",
     ];
+
+    public function getFormattedPriceAttribute() {
+        return "£".number_format(
+            $this->price,
+            2
+        );
+    }
 
     public function preferredSchedules() {
         return $this->hasMany(PreferredSchedule::class);
@@ -28,5 +36,9 @@ class Order extends Model
 
     public function user() {
         return $this->belongsTo(User::class, "user_ordered");
+    }
+
+    public function orderProducts() {
+        return $this->hasMany(OrderProduct::class);
     }
 }
