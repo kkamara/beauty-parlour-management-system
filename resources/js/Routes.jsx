@@ -9,6 +9,7 @@ import HairStyling from "./components/pages/service/HairStylingComponent"
 import HairColouring from "./components/pages/service/HairColouringComponent"
 import HairTreatment from "./components/pages/service/HairTreatmentComponent"
 import Cart from "./components/pages/cart/CartComponent"
+import Orders from "./components/pages/orders/OrdersComponent"
 
 import CheckoutResult from "./components/pages/checkout/CheckoutResultComponent"
 
@@ -26,6 +27,7 @@ export default () => {
       <Routes>
         <Route path={url("/")} element={<Home />}/>
         <Route path={url("/cart")} element={<Cart />}/>
+        <Route path={url("/orders")} element={<Orders />}/>
         <Route path={url("/checkout/result")} element={<CheckoutResult />}/>
         <Route path={url("/services/hair-styling")} element={<HairStyling />}/>
         <Route path={url("/services/hair-colouring")} element={<HairColouring />}/>

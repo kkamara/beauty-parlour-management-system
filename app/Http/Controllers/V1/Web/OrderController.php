@@ -21,11 +21,36 @@ class OrderController extends Controller
     }
 
     public function getOrders(Request $request) {
-        return new OrderCollection(Order::where([
-            ["user_ordered", auth()->user()->id],
-            ["status", "PAID"],
-        ])
-            ->paginate(8)
-            ->appends($request->query()));
+        $orders = Order::where(
+            "user_ordered", auth()->user()->id,
+        );
+        $query = $request->input("query");
+        if (null !== $query) {
+            $orders->where(
+                "orders.id", "LIKE", "%".$query."%",
+            );
+            $orders->orWhere(
+                "status", "LIKE", "%".$query."%",
+            );
+            $orders->orWhere(
+                "orders.price", "LIKE", "%".$query."%",
+            );
+            $orders->orWhere(
+                "worker_assigned", "LIKE", "%".$query."%",
+            );
+            $orders->leftJoin(
+                "order_products",
+                "order_products.order_id",
+                "=",
+                "orders.id",
+            )->orWhere(
+                "order_products.name", "LIKE", "%".$query."%",
+            );
+        } else {
+            $orders->where("status", "PAID");
+        }
+        return new OrderCollection(
+            $orders->paginate(8)
+                ->appends($request->query()));
     }
 }
