@@ -38,6 +38,9 @@ Route::prefix('web')
                 ->name("webhook");
         });
         Route::prefix('/orders')->group(function () {
+            Route::get("/", [OrderController::class, "getOrders"])
+                ->middleware("auth:sanctum")
+                ->name("getOrders");
             Route::get("/{order}", [OrderController::class, "getOrder"])
                 ->middleware("auth:sanctum")
                 ->name("getOrder");
