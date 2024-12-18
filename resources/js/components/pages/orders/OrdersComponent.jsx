@@ -107,37 +107,35 @@ export default function OrdersComponent() {
     return (
       <>
         {paginationDetail()}
-        <ul className="list-group">
-          {state.orders.data.data.map((order, index) => (
-            <div key={index} className="card orders-card">
-              <div className="card header">
-                <h4>
-                  Order <span className="orderId">{order.id}</span> for {order.orderProducts[0].name}&nbsp;
-                  at <span className="price">{order.formattedPrice}</span>
-                </h4>
-              </div>
-              <div className="card-body">
-                <p><span className="fw-bolder">Status:</span> {order.status}</p>
-                {renderPreferredSchedules(order.preferredSchedules)}
-                <p>
-                  <span className="fw-bolder">Assigned date and time:</span>&nbsp;
-                  <span className="text-decoration-underline">{order.dateTime || "No date and time assigned yet."}</span>
-                </p>
-                <p>
-                  <span className="fw-bolder">Assigned worker:</span>&nbsp;
-                  <span className="text-decoration-underline">{order.workerAssigned || "No worker assigned yet."}</span>
-                </p>
-              </div>
-              <div className="card-footer">
-                <div className="text-end">
-                  <a href={`/orders/${order.id}`} className="btn btn-info">
-                    View Order
-                  </a>
-                </div>
+        {state.orders.data.data.map((order, index) => (
+          <div key={index} className="card orders-card">
+            <div className="card header">
+              <h4>
+                Order <span className="orderId">{order.id}</span> for {order.orderProducts[0].name}&nbsp;
+                at <span className="price">{order.formattedPrice}</span>
+              </h4>
+            </div>
+            <div className="card-body">
+              <p><span className="fw-bolder">Status:</span> {order.status}</p>
+              {renderPreferredSchedules(order.preferredSchedules)}
+              <p>
+                <span className="fw-bolder">Assigned date and time:</span>&nbsp;
+                <span className="text-decoration-underline">{order.dateTime || "No date and time assigned yet."}</span>
+              </p>
+              <p>
+                <span className="fw-bolder">Assigned worker:</span>&nbsp;
+                <span className="text-decoration-underline">{order.workerAssigned || "No worker assigned yet."}</span>
+              </p>
+            </div>
+            <div className="card-footer">
+              <div className="text-end">
+                <a href={`/orders/${order.id}`} className="btn btn-info">
+                  View Order
+                </a>
               </div>
             </div>
-          ))}
-        </ul>
+          </div>
+        ))}
         {paginationDetail()}
       </>
     )
@@ -171,6 +169,7 @@ export default function OrdersComponent() {
       <Helmet>
         <title>My Orders - {import.meta.env.VITE_APP_NAME}</title>
       </Helmet>
+      <h3>My Orders</h3>
       <form onSubmit={handleFormSubmit} className="row float-end">
         <div className="form-group col-6">
           <label htmlFor="query">Search all orders:</label>
