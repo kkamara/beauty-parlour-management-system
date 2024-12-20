@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
         User::factory()->create([
             'name' => 'Jane Doe',
             'email' => 'jane@doe.com',
+            "role" => "admin",
         ]);
         Product::factory()->create([
             "name" => "Hair Styling",

@@ -8,8 +8,10 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Traits\Tappable;
 use Laravel\Sanctum\HasApiTokens;
+use Filament\Models\Contracts\FilamentUser;
+use Filament\Panel;
 
-class User extends Authenticatable
+class User extends Authenticatable implements FilamentUser
 {
     use HasFactory, Notifiable;
     use Tappable;
@@ -47,6 +49,11 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function canAccessPanel(Panel $panel): bool
+    {
+        return $this->role && strtolower($this->role) === "admin";
     }
 
     public function carts() {
