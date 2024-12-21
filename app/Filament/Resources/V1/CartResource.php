@@ -51,9 +51,12 @@ class CartResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make("user.name"),
-                TextColumn::make("product.name"),
-                TextColumn::make("quantity"),
+                TextColumn::make("user.name")
+                    ->searchable(),
+                TextColumn::make("product.name")
+                    ->searchable(),
+                TextColumn::make("quantity")
+                    ->searchable(),
             ])
             ->filters([
                 //
