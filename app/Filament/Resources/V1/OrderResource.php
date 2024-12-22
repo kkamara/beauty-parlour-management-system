@@ -8,6 +8,7 @@ use App\Filament\Resources\V1\OrderResource\RelationManagers\OrderProductsRelati
 use App\Filament\Resources\V1\OrderResource\RelationManagers\PreferredSchedulesRelationManager;
 use App\Models\V1\Order;
 use Filament\Forms;
+use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\Group;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
@@ -46,14 +47,14 @@ class OrderResource extends Resource
                             ->required(),
                         TextInput::make("price")
                             ->required(),
-                        TextInput::make("created_at")
+                        DateTimePicker::make("created_at")
                             ->required(),
                     ]),
                 ]),
                 Group::make()->schema([
                     Section::make("Assigned")->schema([
                         TextInput::make("worker_assigned"),
-                        TextInput::make("date_time"),
+                        DateTimePicker::make("date_time"),
                     ]),
                 ]),
             ]);

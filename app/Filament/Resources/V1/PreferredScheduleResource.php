@@ -6,6 +6,7 @@ use App\Filament\Resources\V1\PreferredScheduleResource\Pages;
 use App\Filament\Resources\V1\PreferredScheduleResource\RelationManagers;
 use App\Models\V1\PreferredSchedule;
 use Filament\Forms;
+use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
@@ -31,7 +32,7 @@ class PreferredScheduleResource extends Resource
                     ->required()
                     ->preload()
                     ->searchable(),
-                TextInput::make("date_time"),
+                DateTimePicker::make("date_time"),
             ]);
     }
 

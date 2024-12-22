@@ -7,6 +7,7 @@ use App\Filament\Resources\V1\UserResource\RelationManagers;
 use App\Filament\Resources\V1\UserResource\RelationManagers\CartsRelationManager;
 use App\Models\V1\User;
 use Filament\Forms;
+use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
@@ -32,9 +33,9 @@ class UserResource extends Resource
                     TextInput::make("email"),
                 ]),
                 Section::make("Date & Time")->schema([
-                    TextInput::make("created_at")
+                    DateTimePicker::make("created_at")
                         ->readOnly(),
-                    TextInput::make("updated_at")
+                    DateTimePicker::make("updated_at")
                         ->readOnly(),
                 ]),
             ]);

@@ -20,7 +20,7 @@ class PreferredSchedulesRelationManager extends RelationManager
             ->schema([
                 Forms\Components\TextInput::make('id')
                     ->required(),
-                Forms\Components\TextInput::make('date_time')
+                Forms\Components\DateTimePicker::make('date_time')
                     ->required(),
             ]);
     }
