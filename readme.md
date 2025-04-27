@@ -33,9 +33,11 @@
 <a name="postman"></a>
 ## Using Postman?
 
-[Postman client](https://www.postman.com/).
+[Get Postman HTTP client](https://www.postman.com).
 
-[Published Postman API Collection](https://documenter.getpostman.com/view/17125932/2sAYBREt9n).
+[Postman API Collection for Beauty Parlour Management System](https://github.com/kkamara/beauty-parlour-management-system/blob/main/database/beauty-parlour-management-system.postman_collection.json).
+
+[Postman API Environment for Beauty Parlour Management System](https://github.com/kkamara/beauty-parlour-management-system/blob/main/database/beauty-parlour-management-system.postman_environment.json).
 
 ## Installation
 
