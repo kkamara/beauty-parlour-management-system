@@ -195,7 +195,7 @@ export default function CartComponent() {
       Loading...
     </div>
   }
-
+  console.log("cart data", state.cart.data)
   return (
     <div className='container cart-container'>
       <Helmet>
@@ -210,7 +210,7 @@ export default function CartComponent() {
             action="/api/web/cart/checkout"
             method="POST"
           >
-            {"array" === typeof state.cart.data && (
+            {state.cart.data?.data && (
               <input type="hidden" name="productId" value={state.cart.data.data[0].product.id} />
             )}
             <input type="hidden" name="userId" value={state.auth.data.id} />
