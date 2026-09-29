@@ -210,7 +210,9 @@ export default function CartComponent() {
             action="/api/web/cart/checkout"
             method="POST"
           >
-            <input type="hidden" name="productId" value={state.cart.data.data[0].product.id} />
+            {"array" === typeof state.cart.data && (
+              <input type="hidden" name="productId" value={state.cart.data.data[0].product.id} />
+            )}
             <input type="hidden" name="userId" value={state.auth.data.id} />
             <div className="col-md-8">
               {renderCartItems()}
